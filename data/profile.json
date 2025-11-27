@@ -1,0 +1,75 @@
+{
+  "name": "Abhinav Avasarala",
+  "tagline": "Systems & Software Engineer",
+  "location": "Apex, North Carolina",
+  "headline": "I build reliable systems end-to-end, from CUDA kernels and PyTorch extensions to cloud APIs and responsive front-ends.",
+  "about": "Engineer with a 4.0 GPA at NCSU who mixes low-level performance work (CUDA, C/C++) with full-stack delivery (React, Node, FastAPI). I like taking ambiguous problems, instrumenting them, and shipping clean, observable solutions.",
+  "contact": {
+    "email": "avasarala958@gmail.com",
+    "linkedin": "#",
+    "github": "https://github.com/Abhinav-Avasarala",
+    "resume": "#"
+  },
+  "education": {
+    "school": "North Carolina State University (NCSU)",
+    "degree": "B.S. Computer Engineering",
+    "timeframe": "May 2027 (Expected)",
+    "location": "Raleigh, NC",
+    "bullets": [
+      "GPA: 4.0/4.0",
+      "Courses: Software Development Fundamentals; Data Structures & Algorithms; C & Software Tools; Statistics for Engineers; Multivariable Calculus; Operating Systems; Signals & Circuits; Machine Learning; Fundamentals of Logic Design"
+    ]
+  },
+  "experience": [
+    {
+      "company": "iQuadra Information Services",
+      "role": "Software Engineer Intern",
+      "timeframe": "May 2025 – Aug 2025",
+      "location": "Remote",
+      "bullets": [
+        "Built a bug-tracking system with React front-end, Node + Express back-end, PostgreSQL, and Axios integration",
+        "Designed 12+ RESTful API endpoints and improved bug resolution time by 20% through priority tagging and streamlined workflow",
+        "Led a team of 3 front-end devs to build responsive UIs from Figma designs"
+      ],
+      "tags": ["React", "Node.js", "Express", "PostgreSQL", "REST", "Figma"]
+    },
+    {
+      "company": "North Carolina State University",
+      "role": "Research Intern",
+      "timeframe": "Jan 2025 – May 2025",
+      "location": "Raleigh, NC",
+      "bullets": [
+        "Built a GPU-accelerated linear regression pipeline in PyTorch, CUDA, and C++ with dynamic low-bit quantization to shrink memory and runtime",
+        "Engineered custom CUDA kernels for combined min/max reduction, fused subtract-quantize, and quantize-aware matrix-vector ops",
+        "Achieved ~3x speedup and ~60% GPU memory reduction on a 10M-sample dataset"
+      ],
+      "tags": ["CUDA", "PyTorch", "C++", "Python", "Quantization"]
+    }
+  ],
+  "skills": [
+    {
+      "title": "High-Level",
+      "items": ["Python", "Java", "JavaScript", "TypeScript", "FastAPI", "Flask"]
+    },
+    {
+      "title": "Systems & Performance",
+      "items": ["C", "C++", "CUDA", "PyTorch extensions", "Quantization", "Profiling"]
+    },
+    {
+      "title": "Frontend",
+      "items": ["React", "Next.js", "Responsive UI", "Figma to Code"]
+    },
+    {
+      "title": "Backend & Data",
+      "items": ["Node.js + Express", "REST APIs", "PostgreSQL", "SQL", "AuthN/AuthZ", "CI"]
+    },
+    {
+      "title": "Cloud & DevOps",
+      "items": ["Google Cloud (GKE, Cloud Run, VMs, Cloud SQL, LB)", "Docker", "Terraform", "Load Balancing", "IAM"]
+    },
+    {
+      "title": "ML & Data Science",
+      "items": ["PyTorch", "NumPy", "Pandas", "Scikit-learn", "NLP (FinBERT, custom models)"]
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+[
+  {
+    "id": "gpu-regression",
+    "title": "GPU-Accelerated Regression Pipeline",
+    "timeframe": "Jan 2025 – May 2025",
+    "summary": "PyTorch + CUDA linear regression with quantization to cut memory and runtime for 10M-sample datasets.",
+    "outcome": "~3x speedup and ~60% GPU memory reduction via fused kernels and low-bit quantization.",
+    "stack": ["Python", "C++", "CUDA", "PyTorch"],
+    "links": {
+      "demo": "#",
+      "repo": "#"
+    },
+    "highlights": [
+      "Engineered custom CUDA kernels for min/max reduction, fused subtract-quantize, and quantize-aware matvec ops",
+      "Built a modular PyTorch extension to control quantization levels without host-device transfer overhead",
+      "Instrumented the pipeline to compare quantization modes and memory footprint across batches"
+    ],
+    "lessons": [
+      "Quantization gains disappear without careful fusion; keep data on device and combine passes",
+      "Benchmarking with realistic batch sizes matters more than microbenchmarks for pipeline tuning"
+    ]
+  },
+  {
+    "id": "issue-manager",
+    "title": "Issue Manager (FSM-based)",
+    "timeframe": "Jan 2024 – Apr 2024",
+    "summary": "Java bug management system using finite state machines for assignment, completion, and reporting.",
+    "outcome": "95% code coverage with 30+ unit/integration tests; 40% code complexity reduction using OOP patterns.",
+    "stack": ["Java", "JUnit", "OOP", "FSM"],
+    "links": {
+      "demo": "#",
+      "repo": "#"
+    },
+    "highlights": [
+      "Modeled bug lifecycle via FSM for predictable transitions and reporting",
+      "CSV-based persistence for cross-session history tracking",
+      "Wrote 30+ tests and simplified polymorphism/enum usage to shrink complexity"
+    ],
+    "lessons": [
+      "Explicit state machines make business rules auditable",
+      "Tests are cheaper than retrofits—coverage held refactors steady"
+    ]
+  },
+  {
+    "id": "stock-sentiment",
+    "title": "Stock Sentiment Analyzer",
+    "timeframe": "Sep 2024 – Dec 2024",
+    "summary": "FastAPI service that merges finance/news sources and applies NLP sentiment for real-time portfolio insights.",
+    "outcome": "Selected FinBERT for 92% test accuracy versus Vader; delivers live sentiment on user portfolios.",
+    "stack": ["Python", "FastAPI", "HuggingFace", "FinBERT", "PostgreSQL"],
+    "links": {
+      "demo": "#",
+      "repo": "#"
+    },
+    "highlights": [
+      "Aggregated Reddit, Yahoo Finance, and NewsAPI feeds before sentiment scoring",
+      "Benchmarked FinBERT vs Vader and productionized the higher-accuracy model",
+      "Built end-to-end ML pipeline with user portfolios and live updates"
+    ],
+    "lessons": [
+      "Model choice must be tied to data freshness—FinBERT wins on finance corpora",
+      "Input cleanliness (dedup, spam filtering) moves the accuracy needle most"
+    ]
+  },
+  {
+    "id": "mood-music",
+    "title": "Mood-Based Music Recommendation",
+    "timeframe": "Jun 2024 – Aug 2024",
+    "summary": "React + Node app that predicts mood from text and serves personalized songs via Spotify API.",
+    "outcome": "~90% mood detection accuracy and secure auth with bcrypt hashing and session management.",
+    "stack": ["React", "Node.js", "Express", "NLP", "Spotify API"],
+    "links": {
+      "demo": "#",
+      "repo": "#"
+    },
+    "highlights": [
+      "Full-stack app with React front-end and Node/Express backend",
+      "Integrated Spotify API to stream 5 personalized songs per query",
+      "Implemented REST API integration plus auth using bcrypt hashing"
+    ],
+    "lessons": [
+      "Latency budgets matter when chaining third-party APIs",
+      "Keep auth surfaces small—hash and salt everything, and scope tokens"
+    ]
+  }
+]
