@@ -6,6 +6,7 @@
     "summary": "PyTorch + CUDA linear regression with quantization to cut memory and runtime for 10M-sample datasets.",
     "outcome": "~3x speedup and ~60% GPU memory reduction via fused kernels and low-bit quantization.",
     "stack": ["Python", "C++", "CUDA", "PyTorch"],
+    "image": "",
     "links": {
       "demo": "#",
       "repo": "#"
@@ -27,6 +28,7 @@
     "summary": "Java bug management system using finite state machines for assignment, completion, and reporting.",
     "outcome": "95% code coverage with 30+ unit/integration tests; 40% code complexity reduction using OOP patterns.",
     "stack": ["Java", "JUnit", "OOP", "FSM"],
+    "image": "",
     "links": {
       "demo": "#",
       "repo": "#"
@@ -48,6 +50,7 @@
     "summary": "FastAPI service that merges finance/news sources and applies NLP sentiment for real-time portfolio insights.",
     "outcome": "Selected FinBERT for 92% test accuracy versus Vader; delivers live sentiment on user portfolios.",
     "stack": ["Python", "FastAPI", "HuggingFace", "FinBERT", "PostgreSQL"],
+    "image": "",
     "links": {
       "demo": "#",
       "repo": "#"
@@ -69,6 +72,7 @@
     "summary": "React + Node app that predicts mood from text and serves personalized songs via Spotify API.",
     "outcome": "~90% mood detection accuracy and secure auth with bcrypt hashing and session management.",
     "stack": ["React", "Node.js", "Express", "NLP", "Spotify API"],
+    "image": "",
     "links": {
       "demo": "#",
       "repo": "#"

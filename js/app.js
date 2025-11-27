@@ -11,6 +11,16 @@
   function renderProfile(profile) {
     if (qs('#name')) qs('#name').textContent = profile.name;
     if (qs('#tagline')) qs('#tagline').textContent = profile.tagline;
+    if (qs('#hero-photo')) {
+      const wrap = qs('#hero-photo');
+      if (profile.photo) {
+        const img = document.createElement('img');
+        img.src = profile.photo;
+        img.alt = `${profile.name} headshot`;
+        wrap.appendChild(img);
+        wrap.style.display = 'block';
+      }
+    }
     if (qs('#location')) qs('#location').textContent = profile.location;
     if (qs('#headline')) qs('#headline').textContent = profile.headline;
     if (qs('#about-text')) qs('#about-text').textContent = profile.about;
@@ -63,7 +73,7 @@
       const wrap = qs('#experience-list');
       profile.experience.forEach((exp) => {
         const item = document.createElement('div');
-        item.className = 'item';
+        item.className = 'experience-card';
         const title = document.createElement('h3');
         title.textContent = `${exp.role} · ${exp.company}`;
         const meta = document.createElement('div');
@@ -84,7 +94,17 @@
           pill.textContent = t;
           tags.appendChild(pill);
         });
-        item.append(title, meta, ul, tags);
+        const footer = document.createElement('div');
+        footer.className = 'experience-footer';
+        footer.appendChild(tags);
+        if (exp.detailLink && exp.detailLink !== '#') {
+          const dive = document.createElement('a');
+          dive.className = 'link-pill';
+          dive.href = exp.detailLink;
+          dive.textContent = 'Deep dive';
+          footer.appendChild(dive);
+        }
+        item.append(title, meta, ul, footer);
         wrap.appendChild(item);
       });
     }
@@ -117,6 +137,15 @@
     projects.forEach((p) => {
       const card = document.createElement('div');
       card.className = 'project-card';
+      if (p.image) {
+        const img = document.createElement('img');
+        img.className = 'project-image';
+        img.src = p.image;
+        img.alt = `${p.title} cover`;
+        card.appendChild(img);
+      }
+      const body = document.createElement('div');
+      body.className = 'project-body';
       const title = document.createElement('h3');
       title.textContent = p.title;
       const time = document.createElement('div');
@@ -151,7 +180,8 @@
         repo.textContent = 'Repo';
         cta.appendChild(repo);
       }
-      card.append(title, time, summary, outcome, stack, cta);
+      body.append(title, time, summary, outcome, stack, cta);
+      card.appendChild(body);
       grid.appendChild(card);
     });
   }
@@ -167,6 +197,13 @@
       return;
     }
     container.innerHTML = '';
+    if (project.image) {
+      const img = document.createElement('img');
+      img.className = 'cover';
+      img.src = project.image;
+      img.alt = `${project.title} cover`;
+      container.appendChild(img);
+    }
     const h1 = document.createElement('h1');
     h1.textContent = project.title;
     const meta = document.createElement('div');
@@ -233,9 +270,35 @@
     container.append(h1, meta, summary, outcome, stack, highlights, lessons, links);
   }
 
+  function renderCertifications(profile) {
+    if (!qs('#cert-grid')) return;
+    const grid = qs('#cert-grid');
+    (profile.certifications || []).forEach((c) => {
+      const card = document.createElement('div');
+      card.className = 'cert-card';
+      const title = document.createElement('h3');
+      title.textContent = c.title;
+      const meta = document.createElement('div');
+      meta.className = 'meta';
+      meta.textContent = [c.issuer, c.date].filter(Boolean).join(' • ');
+      card.append(title, meta);
+      if (c.link && c.link !== '#') {
+        const link = document.createElement('a');
+        link.className = 'link-pill';
+        link.href = c.link;
+        link.target = '_blank';
+        link.rel = 'noopener';
+        link.textContent = 'Show credential';
+        card.appendChild(link);
+      }
+      grid.appendChild(card);
+    });
+  }
+
   try {
     const profile = await loadJSON('data/profile.json');
     renderProfile(profile);
+    renderCertifications(profile);
   } catch (err) {
     console.error(err);
   }

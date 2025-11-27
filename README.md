@@ -9,6 +9,7 @@ Static site ready for GitHub Pages. Content is data-driven: edit JSON, not HTML.
 - `js/app.js` – renders content from JSON onto each page
 - `data/profile.json` – name, tagline, skills, experience, education, contact links
 - `data/projects.json` – projects and deep-dive content
+- `img/` (optional) – drop a headshot or project covers and point JSON fields at them
 - `logs/README.md` – project log template (use while building)
 
 ## View locally
@@ -21,10 +22,13 @@ Then open http://localhost:8000 in a browser. (Double-clicking the HTML file may
 ## Update content
 1) Edit profile details: `data/profile.json`
    - Update `contact.linkedin`, `contact.github`, and `contact.resume` when you have URLs.
+   - Add a headshot by setting `photo` to `img/<your-file>` (place the image in `img/`).
+   - Add certifications in the `certifications` array (`title`, `issuer`, `date`, optional `link`).
 2) Add or edit projects: `data/projects.json`
-   - Each project needs a unique `id`, `title`, `timeframe`, `summary`, `outcome`, `stack`, optional `links` (`repo`/`demo`), `highlights`, and `lessons`.
+   - Each project needs a unique `id`, `title`, `timeframe`, `summary`, `outcome`, `stack`, optional `image`, optional `links` (`repo`/`demo`), `highlights`, and `lessons`.
    - Use the log template in `logs/` while building; paste key bullets into `projects.json`.
 3) Deep dives: open `project.html?id=<project-id>` (cards link there automatically).
+4) Experience deep dives: add `detailLink` per experience (could point to a project deep dive or an external doc).
 
 ## Deploy to GitHub Pages
 1) Commit and push to GitHub.
