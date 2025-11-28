@@ -9,7 +9,7 @@
     "email": "avasarala958@gmail.com",
     "linkedin": "https://www.linkedin.com/in/abhinav-avasarala-417913230/",
     "github": "https://github.com/Abhinav-Avasarala",
-    "resume": "docs/Abhinav_Resume.pdf"
+    "resume": "docs/Resume.pdf"
   },
   "education": {
     "school": "North Carolina State University (NCSU)",
@@ -29,9 +29,7 @@
       "timeframe": "Jan 2025 – Present",
       "location": " (Raleigh, NC)",
       "bullets": [
-        "Built a GPU-accelerated linear regression pipeline in PyTorch, CUDA, and C++ with dynamic low-bit quantization to shrink memory and runtime",
-        "Engineered custom CUDA kernels for combined min/max reduction, fused subtract-quantize, and quantize-aware matrix-vector ops",
-        "Achieved ~3x speedup and ~60% GPU memory reduction on a 10M-sample dataset"
+        "I'm working on research to accelerate neural network inference by pushing a 16-bit diffusion model down to low-precision formats such as INT8 and FP8, using CUDA, cuBLAS, and CUTLASS. The goal is to cut memory footprint and latency without sacrificing output quality."
       ],
       "tags": ["CUDA", "PyTorch", "C++", "Python", "Quantization"],
       "detailLink": "experience.html?id=ncsu-research",
