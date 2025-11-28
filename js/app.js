@@ -1,6 +1,5 @@
 (async function () {
   const qs = (sel) => document.querySelector(sel);
-  const qsa = (sel) => Array.from(document.querySelectorAll(sel));
 
   async function loadJSON(path) {
     const res = await fetch(path);
@@ -36,17 +35,6 @@
     if (qs('#github-link')) {
       qs('#github-link').href = profile.contact.github || '#';
       qs('#github-link').textContent = profile.contact.github ? profile.contact.github.replace('https://', '') : 'Add GitHub URL';
-    }
-
-    if (qs('#quick-stack')) {
-      const holder = qs('#quick-stack');
-      const flatSkills = profile.skills.flatMap((group) => group.items).slice(0, 6);
-      flatSkills.forEach((skill) => {
-        const b = document.createElement('div');
-        b.className = 'badge';
-        b.textContent = skill;
-        holder.appendChild(b);
-      });
     }
 
     if (qs('#skills-grid')) {
@@ -97,10 +85,15 @@
         const footer = document.createElement('div');
         footer.className = 'experience-footer';
         footer.appendChild(tags);
-        if (exp.detailLink && exp.detailLink !== '#') {
+        const deepDiveUrl = exp.detailLink && exp.detailLink !== '#'
+          ? exp.detailLink
+          : exp.deepDive && exp.id
+            ? `experience.html?id=${encodeURIComponent(exp.id)}`
+            : null;
+        if (deepDiveUrl) {
           const dive = document.createElement('a');
           dive.className = 'link-pill';
-          dive.href = exp.detailLink;
+          dive.href = deepDiveUrl;
           dive.textContent = 'Deep dive';
           footer.appendChild(dive);
         }
@@ -131,10 +124,105 @@
     }
   }
 
+  function renderExperienceDetail(profile) {
+    const container = qs('#experience-detail');
+    if (!container) return;
+    const experiences = profile.experience || [];
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get('id');
+    const exp = experiences.find((e) => e.id === id) || experiences.find((e) => e.deepDive) || experiences[0];
+    if (!exp) {
+      container.textContent = 'Experience not found.';
+      return;
+    }
+
+    const dive = exp.deepDive || {};
+    container.innerHTML = '';
+
+    const header = document.createElement('div');
+    header.className = 'detail-header';
+
+    const h1 = document.createElement('h1');
+    h1.textContent = dive.title || `${exp.role} · ${exp.company}`;
+    header.appendChild(h1);
+
+    const metaRow = document.createElement('div');
+    metaRow.className = 'meta-row';
+    const metaParts = [
+      dive.timeframe || exp.timeframe,
+      dive.location || exp.location
+    ].filter(Boolean);
+    metaParts.forEach((part) => {
+      const pill = document.createElement('span');
+      pill.className = 'meta-pill';
+      pill.textContent = part;
+      metaRow.appendChild(pill);
+    });
+    if (metaRow.children.length) header.appendChild(metaRow);
+
+    container.appendChild(header);
+
+    if (dive.summary || exp.bullets?.length) {
+      const lead = document.createElement('p');
+      lead.className = 'lead';
+      lead.textContent = dive.summary || exp.bullets[0];
+      container.appendChild(lead);
+    }
+
+    const narrative = dive.body || exp.bullets || [];
+    if (narrative.length) {
+      const section = document.createElement('div');
+      section.className = 'detail-section';
+      const h3 = document.createElement('h3');
+      h3.textContent = 'How I approached it';
+      const list = document.createElement('ul');
+      list.className = 'point-list';
+      narrative.forEach((paragraph) => {
+        if (!paragraph) return;
+        const li = document.createElement('li');
+        li.textContent = paragraph;
+        list.appendChild(li);
+      });
+      section.append(h3, list);
+      container.appendChild(section);
+    }
+
+    const focusItems = dive.focusAreas || exp.bullets || [];
+    if (focusItems.length) {
+      const focus = document.createElement('div');
+      focus.className = 'detail-section';
+      const h3 = document.createElement('h3');
+      h3.textContent = 'Focus areas';
+      const grid = document.createElement('div');
+      grid.className = 'focus-grid';
+      focusItems.forEach((f) => {
+        const item = document.createElement('div');
+        item.className = 'focus-chip';
+        item.textContent = f;
+        grid.appendChild(item);
+      });
+      focus.append(h3, grid);
+      container.appendChild(focus);
+    }
+
+    if ((exp.tags || []).length) {
+      const tags = document.createElement('div');
+      tags.className = 'tag-row';
+      exp.tags.forEach((t) => {
+        const pill = document.createElement('div');
+        pill.className = 'pill';
+        pill.textContent = t;
+        tags.appendChild(pill);
+      });
+      container.appendChild(tags);
+    }
+  }
+
   function renderProjects(projects) {
     if (!qs('#project-cards')) return;
     const grid = qs('#project-cards');
-    projects.forEach((p) => {
+    const visibleProjects = projects.filter((p) => !p.hidden);
+    visibleProjects.forEach((p) => {
       const card = document.createElement('div');
       card.className = 'project-card';
       if (p.image) {
@@ -189,9 +277,10 @@
   function renderProjectDetail(projects) {
     const container = qs('#project-detail');
     if (!container) return;
+    const visibleProjects = projects.filter((p) => !p.hidden);
     const params = new URLSearchParams(window.location.search);
     const id = params.get('id');
-    const project = projects.find((p) => p.id === id) || projects[0];
+    const project = projects.find((p) => p.id === id) || visibleProjects[0] || projects[0];
     if (!project) {
       container.textContent = 'Project not found.';
       return;
@@ -299,6 +388,7 @@
     const profile = await loadJSON('data/profile.json');
     renderProfile(profile);
     renderCertifications(profile);
+    renderExperienceDetail(profile);
   } catch (err) {
     console.error(err);
   }

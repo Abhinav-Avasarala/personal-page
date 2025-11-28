@@ -1,27 +1,5 @@
 [
   {
-    "id": "gpu-regression",
-    "title": "GPU-Accelerated Regression Pipeline",
-    "timeframe": "Jan 2025 – May 2025",
-    "summary": "PyTorch + CUDA linear regression with quantization to cut memory and runtime for 10M-sample datasets.",
-    "outcome": "~3x speedup and ~60% GPU memory reduction via fused kernels and low-bit quantization.",
-    "stack": ["Python", "C++", "CUDA", "PyTorch"],
-    "image": "",
-    "links": {
-      "demo": "#",
-      "repo": "#"
-    },
-    "highlights": [
-      "Engineered custom CUDA kernels for min/max reduction, fused subtract-quantize, and quantize-aware matvec ops",
-      "Built a modular PyTorch extension to control quantization levels without host-device transfer overhead",
-      "Instrumented the pipeline to compare quantization modes and memory footprint across batches"
-    ],
-    "lessons": [
-      "Quantization gains disappear without careful fusion; keep data on device and combine passes",
-      "Benchmarking with realistic batch sizes matters more than microbenchmarks for pipeline tuning"
-    ]
-  },
-  {
     "id": "issue-manager",
     "title": "Issue Manager (FSM-based)",
     "timeframe": "Jan 2024 – Apr 2024",
@@ -41,6 +19,31 @@
     "lessons": [
       "Explicit state machines make business rules auditable",
       "Tests are cheaper than retrofits—coverage held refactors steady"
+    ],
+    "hidden": true
+  },
+  {
+    "id": "reflectra",
+    "title": "Reflectra – AI Wellness Copilot",
+    "timeframe": "Feb 2025 · 36-hour hackathon",
+    "summary": "AI reflection chat that turns your browsing history into balanced wellness insights instead of just screen-time metrics.",
+    "outcome": "Built a Chrome extension + Supabase + RAG stack that highlights focus patterns and mindful breaks directly from tab activity.",
+    "stack": ["Chrome Extension (MV3)", "Express", "Supabase", "GPT-4o-mini", "Pinecone", "React"],
+    "image": "",
+    "links": {
+      "demo": "#",
+      "repo": "#"
+    },
+    "highlights": [
+      "Ships an AI Reflection Chat powered by RAG over your personal browsing embeddings",
+      "Uses Pinecone to store per-site embeddings for context-rich recall of habits and focus trends",
+      "Dashboards tab activity to surface when you start passive scrolling vs. deep work stretches",
+      "Built and iterated the full stack in 36 hours with a team of three"
+    ],
+    "lessons": [
+      "Wellness insights beat raw screen-time; context matters more than minutes watched",
+      "Vector databases unlock personalized recall without storing raw histories",
+      "Shipping fast still needs observability—tracked extension events to keep the RAG answers reliable"
     ]
   },
   {

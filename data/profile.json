@@ -3,8 +3,8 @@
   "tagline": "Systems & Software Engineer",
   "photo": "",
   "location": "Apex, North Carolina",
-  "headline": "I build reliable systems end-to-end, from CUDA kernels and PyTorch extensions to cloud APIs and responsive front-ends.",
-  "about": "Engineer with a 4.0 GPA at NCSU who mixes low-level performance work (CUDA, C/C++) with full-stack delivery (React, Node, FastAPI). I like taking ambiguous problems, instrumenting them, and shipping clean, observable solutions.",
+  "headline": "I’m a full-stack systems engineer who enjoys building software from the ground up, understanding how hardware works, how systems scale, and how to turn that knowledge into fast, reliable applications.",
+  "about": "My experience spans low-level programming (C/C++/CUDA), backend systems (Python, Node.js), cloud infrastructure (GCP/AWS/Kubernetes), and ML frameworks. I love diving deep into performance, debugging bottlenecks.",
   "contact": {
     "email": "avasarala958@gmail.com",
     "linkedin": "https://www.linkedin.com/in/abhinav-avasarala-417913230/",
@@ -23,31 +23,65 @@
   },
   "experience": [
     {
-      "company": "iQuadra Information Services",
-      "role": "Software Engineer Intern",
-      "timeframe": "May 2025 – Aug 2025",
-      "location": "Remote",
-      "bullets": [
-        "Built a bug-tracking system with React front-end, Node + Express back-end, PostgreSQL, and Axios integration",
-        "Designed 12+ RESTful API endpoints and improved bug resolution time by 20% through priority tagging and streamlined workflow",
-        "Led a team of 3 front-end devs to build responsive UIs from Figma designs"
-      ],
-      "tags": ["React", "Node.js", "Express", "PostgreSQL", "REST", "Figma"],
-      "detailLink": "project.html?id=issue-manager"
-    },
-    {
+      "id": "ncsu-research",
       "company": "North Carolina State University",
       "role": "Research Intern",
-      "timeframe": "Jan 2025 – May 2025",
-      "location": "Raleigh, NC",
+      "timeframe": "Jan 2025 – Present",
+      "location": " (Raleigh, NC)",
       "bullets": [
         "Built a GPU-accelerated linear regression pipeline in PyTorch, CUDA, and C++ with dynamic low-bit quantization to shrink memory and runtime",
         "Engineered custom CUDA kernels for combined min/max reduction, fused subtract-quantize, and quantize-aware matrix-vector ops",
         "Achieved ~3x speedup and ~60% GPU memory reduction on a 10M-sample dataset"
       ],
       "tags": ["CUDA", "PyTorch", "C++", "Python", "Quantization"],
-      "detailLink": "project.html?id=gpu-regression"
+      "detailLink": "experience.html?id=ncsu-research",
+      "deepDive": {
+        "title": "Low-Precision GPU Inference Research – INT8/FP8 Diffusion Model Acceleration",
+        "timeframe": "Jan 2025 – Present",
+        "summary": "I'm working on research to accelerate neural network inference by pushing a 16-bit diffusion model down to low-precision formats such as INT8 and FP8, using CUDA, cuBLAS, and CUTLASS. The goal is to cut memory footprint and latency without sacrificing output quality.",
+        "body": [
+          "I designed structured experiments to understand precision bottlenecks, learned GPU architecture and CUDA from first principles, and built several prototype kernels and PyTorch extensions to test different quantization paths.",
+          "I've implemented symmetric INT8 quantization for smaller networks, benchmarked FP8 variants, and proposed multiple feasible approaches for scaling these techniques to the full diffusion model."
+        ],
+        "focusAreas": [
+          "CUDA kernel development",
+          "cuBLAS GEMMEx and CUTLASS low-precision kernels",
+          "PyTorch internals and custom ops",
+          "Quantization error analysis",
+          "Performance benchmarking on modern NVIDIA architectures"
+        ]
+      }
+    },
+    {
+      "id": "iquadra",
+      "company": "iQuadra Information Services",
+      "role": "Software Engineer Intern",
+      "timeframe": "May 2025 – Aug 2025",
+      "location": " (Remote)",
+      "bullets": [
+        "Built a bug-tracking system with React front-end, Node + Express back-end, PostgreSQL, and Axios integration",
+        "Designed 12+ RESTful API endpoints and improved bug resolution time by 20% through priority tagging and streamlined workflow",
+        "Led a team of 3 front-end devs to build responsive UIs from Figma designs"
+      ],
+      "tags": ["React", "Node.js", "Express", "PostgreSQL", "REST", "Figma"],
+      "detailLink": "experience.html?id=iquadra",
+      "deepDive": {
+        "title": "Shipping a Cross-Platform Bug Tracker",
+        "summary": "Built a React + Node.js bug-tracking system end-to-end and steered a small front-end team to hit polish and performance targets.",
+        "body": [
+          "Designed and implemented 12+ REST endpoints on Express/PostgreSQL to cover bug lifecycle actions, priority routing, and reporting.",
+          "Coordinated three front-end developers, translating Figma specs into responsive React views and guiding component patterns for reuse.",
+          "Instrumented the workflow to cut resolution time ~20% by enforcing priority tags, filtered views, and clear ownership routing."
+        ],
+        "focusAreas": [
+          "React UI architecture and component reuse",
+          "REST API design on Node.js + Express",
+          "PostgreSQL schema design for issue lifecycle",
+          "Team leadership and delivery against specs"
+        ]
+      }
     }
+    
   ],
   "certifications": [
     {
@@ -84,7 +118,7 @@
     },
     {
       "title": "Backend & Data",
-      "items": ["Node.js + Express", "REST APIs", "PostgreSQL", "SQL", "AuthN/AuthZ", "CI"]
+      "items": ["Node.js + Express", "REST APIs", "PostgreSQL", "SQL"]
     },
     {
       "title": "Cloud & DevOps",
