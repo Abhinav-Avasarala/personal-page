@@ -59,9 +59,10 @@
       "repo": "https://github.com/Abhinav-Avasarala/HackNCState-paper2proto"
     },
     "highlights": [
-      "Orchestrates a 6-agent pipeline (Router, Retriever, Summarizer, Tutor, Builder, Verifier) with conditional routing",
-      "Runs a self-verification loop that fact-checks claims and triggers re-retrieval when support is weak or missing",
-      "Supports citation-backed chat answers, code extraction, and concept graph visualization from uploaded papers"
+      "Designed a layered architecture: React frontend -> FastAPI backend -> LangGraph multi-agent pipeline -> cloud AI services",
+      "Built a 6-agent workflow (Router, Retriever, Summarizer, Tutor, Builder, Verifier) with conditional routing and verification loops",
+      "Integrated AWS Bedrock (Claude 3.5 Sonnet), OpenSearch vector retrieval, and Gemini 2.5 Flash for grounded multi-model inference",
+      "Delivered citation-backed Q&A, code extraction, and concept graph visualization directly from uploaded research PDFs"
     ],
     "lessons": [
       "A dedicated verifier materially reduces hallucinations in RAG-style pipelines",
