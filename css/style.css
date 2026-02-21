@@ -375,10 +375,12 @@ header {
 
 .detail .cover {
   width: 100%;
-  max-height: 280px;
-  object-fit: cover;
+  max-height: 420px;
+  height: auto;
+  object-fit: contain;
   border-radius: 14px;
   border: 1px solid var(--border);
+  background: color-mix(in srgb, var(--panel-2) 92%, transparent);
   margin-bottom: 14px;
 }
 
