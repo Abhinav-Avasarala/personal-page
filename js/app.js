@@ -335,6 +335,84 @@
     });
     lessons.append(h3, ul2);
 
+    let gallery = null;
+    const demoImages = (project.demoImages || []).filter(Boolean);
+    if (demoImages.length) {
+      gallery = document.createElement('div');
+      gallery.className = 'detail-section';
+
+      const galleryTitle = document.createElement('h3');
+      galleryTitle.textContent = 'Demo Gallery';
+
+      const carousel = document.createElement('div');
+      carousel.className = 'carousel';
+
+      const frame = document.createElement('div');
+      frame.className = 'carousel-frame';
+
+      const carouselImage = document.createElement('img');
+      carouselImage.className = 'carousel-image';
+      frame.appendChild(carouselImage);
+
+      const controls = document.createElement('div');
+      controls.className = 'carousel-controls';
+
+      const nav = document.createElement('div');
+      nav.className = 'carousel-nav';
+
+      const prevBtn = document.createElement('button');
+      prevBtn.className = 'carousel-btn';
+      prevBtn.type = 'button';
+      prevBtn.textContent = 'Previous';
+
+      const nextBtn = document.createElement('button');
+      nextBtn.className = 'carousel-btn';
+      nextBtn.type = 'button';
+      nextBtn.textContent = 'Next';
+
+      nav.append(prevBtn, nextBtn);
+
+      const dots = document.createElement('div');
+      dots.className = 'carousel-dots';
+
+      let activeIndex = 0;
+      const dotButtons = demoImages.map((_, idx) => {
+        const dot = document.createElement('button');
+        dot.className = 'carousel-dot';
+        dot.type = 'button';
+        dot.setAttribute('aria-label', `Show demo image ${idx + 1}`);
+        dot.addEventListener('click', () => {
+          activeIndex = idx;
+          updateCarousel();
+        });
+        dots.appendChild(dot);
+        return dot;
+      });
+
+      function updateCarousel() {
+        carouselImage.src = demoImages[activeIndex];
+        carouselImage.alt = `${project.title} demo ${activeIndex + 1}`;
+        dotButtons.forEach((dot, idx) => {
+          dot.classList.toggle('active', idx === activeIndex);
+        });
+      }
+
+      prevBtn.addEventListener('click', () => {
+        activeIndex = (activeIndex - 1 + demoImages.length) % demoImages.length;
+        updateCarousel();
+      });
+
+      nextBtn.addEventListener('click', () => {
+        activeIndex = (activeIndex + 1) % demoImages.length;
+        updateCarousel();
+      });
+
+      updateCarousel();
+      controls.append(nav, dots);
+      carousel.append(frame, controls);
+      gallery.append(galleryTitle, carousel);
+    }
+
     const links = document.createElement('div');
     links.className = 'cta';
     if (project.links?.demo && project.links.demo !== '#') {
@@ -354,6 +432,11 @@
       repo.rel = 'noopener';
       repo.textContent = 'Repo';
       links.appendChild(repo);
+    }
+
+    if (gallery) {
+      container.append(h1, meta, summary, outcome, stack, highlights, lessons, gallery, links);
+      return;
     }
 
     container.append(h1, meta, summary, outcome, stack, highlights, lessons, links);

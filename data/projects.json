@@ -54,6 +54,11 @@
     "outcome": "Built a multi-agent LangGraph pipeline with retrieval, verification loops, and dual-model inference to generate grounded answers from uploaded PDFs.",
     "stack": ["React", "FastAPI", "LangGraph", "AWS Bedrock", "OpenSearch", "Gemini 2.5 Flash"],
     "image": "img/paper2proto-architecture.png",
+    "demoImages": [
+      "img/paper2proto-demo-1.png",
+      "img/paper2proto-demo-2.png",
+      "img/paper2proto-demo-3.png"
+    ],
     "links": {
       "demo": "#",
       "repo": "https://github.com/Abhinav-Avasarala/HackNCState-paper2proto"

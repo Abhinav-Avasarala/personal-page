@@ -396,6 +396,62 @@ header {
 }
 .lead { margin: 0; color: var(--text); font-size: 16px; line-height: 1.7; }
 .detail-section { padding: 12px 0 0; border-top: 1px solid var(--border); display: flex; flex-direction: column; gap: 12px; }
+.carousel {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.carousel-frame {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--panel-2) 92%, transparent);
+  overflow: hidden;
+}
+.carousel-image {
+  width: 100%;
+  max-height: 430px;
+  object-fit: contain;
+  display: block;
+}
+.carousel-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.carousel-nav {
+  display: flex;
+  gap: 8px;
+}
+.carousel-btn {
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.02);
+  color: var(--text);
+  cursor: pointer;
+}
+.carousel-btn:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+.carousel-dots {
+  display: flex;
+  gap: 8px;
+}
+.carousel-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+}
+.carousel-dot.active {
+  background: var(--accent-2);
+  border-color: var(--accent-2);
+}
 .point-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
 .point-list li {
   position: relative;
