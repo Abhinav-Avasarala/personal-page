@@ -47,6 +47,29 @@
     ]
   },
   {
+    "id": "paper2proto",
+    "title": "Paper2Proto",
+    "timeframe": "HackNC State",
+    "summary": "AI-powered platform that turns research papers into interactive, queryable knowledge bases with citation-backed answers, code extraction, and concept visualization.",
+    "outcome": "Built a multi-agent LangGraph pipeline with retrieval, verification loops, and dual-model inference to generate grounded answers from uploaded PDFs.",
+    "stack": ["React", "FastAPI", "LangGraph", "AWS Bedrock", "OpenSearch", "Gemini 2.5 Flash"],
+    "image": "img/paper2proto-architecture.png",
+    "links": {
+      "demo": "#",
+      "repo": "https://github.com/Abhinav-Avasarala/HackNCState-paper2proto"
+    },
+    "highlights": [
+      "Orchestrates a 6-agent pipeline (Router, Retriever, Summarizer, Tutor, Builder, Verifier) with conditional routing",
+      "Runs a self-verification loop that fact-checks claims and triggers re-retrieval when support is weak or missing",
+      "Supports citation-backed chat answers, code extraction, and concept graph visualization from uploaded papers"
+    ],
+    "lessons": [
+      "A dedicated verifier materially reduces hallucinations in RAG-style pipelines",
+      "Separating query routing from generation improves response quality across mixed user intents",
+      "Grounded citations and UX affordances are as important as model quality for user trust"
+    ]
+  },
+  {
     "id": "stock-sentiment",
     "title": "Stock Sentiment Analyzer",
     "timeframe": "Sep 2024 – Dec 2024",
