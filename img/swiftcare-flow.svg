@@ -28,7 +28,7 @@
   <text class="caption" x="180" y="190" text-anchor="middle">triage diagnosis + trace</text>
 
   <rect class="node" x="340" y="140" width="240" height="60"/>
-  <text class="label" x="460" y="170" text-anchor="middle">GraphRAG & Neo4j</text>
+  <text class="label" x="460" y="170" text-anchor="middle">GraphRAG &amp; Neo4j</text>
   <text class="caption" x="460" y="190" text-anchor="middle">hospital ranking</text>
 
   <rect class="node-light" x="200" y="240" width="280" height="60"/>
@@ -40,7 +40,7 @@
   <text class="caption" x="680" y="292" text-anchor="middle">polls /api/call/{callSid}/status</text>
 
   <rect class="node" x="420" y="340" width="260" height="60"/>
-  <text class="label" x="550" y="370" text-anchor="middle">Confirmed & Notify</text>
+  <text class="label" x="550" y="370" text-anchor="middle">Confirmed &amp; Notify</text>
   <text class="caption" x="550" y="392" text-anchor="middle">navigation, privacy, alerts</text>
 
   <path class="arrow" d="M300,70 L340,70"/>

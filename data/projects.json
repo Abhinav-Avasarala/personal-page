@@ -82,10 +82,10 @@
     "summary": "One-button emergency assistant that records a patient’s situation, runs a LangGraph + Neo4j triage, and orchestrates a mock Twilio call so the hospital is ready before you arrive.",
     "outcome": "Delivered a SwiftUI + backend prototype that mirrors ambulance triage: the UI records speech, sends simultaneous triage/pipeline requests, and tracks a Twilio call lifecycle with live confirmations.",
     "stack": ["SwiftUI", "Swift", "FastAPI", "LangGraph", "Node.js", "Twilio", "Neo4j"],
-    "image": "img/swiftcare-flow.svg",
+    "image": "img/swiftcare-flow.png",
     "links": {
       "demo": "#",
-      "repo": "#"
+      "repo": "https://github.com/Abhinav-Avasarala/SwiftCare"
     },
     "highlights": [
       "SwiftUI emergency flow captures speech, shows a live transcription waveform, and polls the call status feed while awaiting confirmations",
