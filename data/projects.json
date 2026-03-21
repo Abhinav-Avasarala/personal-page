@@ -76,6 +76,34 @@
     ]
   },
   {
+    "id": "swiftcare",
+    "title": "SwiftCare",
+    "timeframe": "Spring 2025",
+    "summary": "One-button emergency assistant that records a patient’s situation, runs a LangGraph + Neo4j triage, and orchestrates a mock Twilio call so the hospital is ready before you arrive.",
+    "outcome": "Delivered a SwiftUI + backend prototype that mirrors ambulance triage: the UI records speech, sends simultaneous triage/pipeline requests, and tracks a Twilio call lifecycle with live confirmations.",
+    "stack": ["SwiftUI", "Swift", "FastAPI", "LangGraph", "Node.js", "Twilio", "Neo4j"],
+    "image": "img/swiftcare-flow.svg",
+    "links": {
+      "demo": "#",
+      "repo": "#"
+    },
+    "highlights": [
+      "SwiftUI emergency flow captures speech, shows a live transcription waveform, and polls the call status feed while awaiting confirmations",
+      "Python triage API leverages LangGraph agents (summarizer, pipeline, GraphRAG hospital responder) plus Neo4j to return ranked hospitals before selection",
+      "Node/Twilio gateway simulates Phase 1/Phase 2 calls, cascades to failover numbers, and exposes webhook-driven status endpoints for the UI",
+      "Profile, navigation, notification, and learning hooks keep the prototype extendable for MapKit, push/SMS, and Supabase logging"
+    ],
+    "lessons": [
+      "Scoped multi-agent boundaries keep the UI deterministic even when relying on AI reasoning traces",
+      "In-memory Twilio session storage makes Phase 1/2 workflows easy to debug without committing to long-lived services",
+      "Simulating offline HTTP endpoints keeps the experience reproducible in Xcode while still surfacing AI/Twilio behavior"
+    ],
+    "video": {
+      "src": "videos/swiftcare-demo.mp4",
+      "caption": "SwiftCare deep-dive demo (12 MB MP4) illustrating the emergency button, backend triage/pipeline calls, and the live confirmation screen."
+    }
+  },
+  {
     "id": "stock-sentiment",
     "title": "Stock Sentiment Analyzer",
     "timeframe": "Sep 2024 – Dec 2024",

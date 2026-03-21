@@ -335,6 +335,30 @@
     });
     lessons.append(h3, ul2);
 
+    let videoSection = null;
+    if (project.video?.src) {
+      videoSection = document.createElement('div');
+      videoSection.className = 'detail-section';
+      const title = document.createElement('h3');
+      title.textContent = 'Demo Video';
+      const video = document.createElement('video');
+      video.controls = true;
+      video.setAttribute('playsinline', '');
+      video.className = 'detail-video';
+      video.src = project.video.src;
+      if (project.video.poster) {
+        video.poster = project.video.poster;
+      }
+      if (project.video.caption) {
+        const caption = document.createElement('p');
+        caption.className = 'video-caption';
+        caption.textContent = project.video.caption;
+        videoSection.append(title, video, caption);
+      } else {
+        videoSection.append(title, video);
+      }
+    }
+
     let gallery = null;
     const demoImages = (project.demoImages || []).filter(Boolean);
     if (demoImages.length) {
@@ -434,12 +458,16 @@
       links.appendChild(repo);
     }
 
+    const detailExtras = [];
+    if (videoSection) detailExtras.push(videoSection);
+
+    const baseContent = [h1, meta, summary, outcome, stack, highlights, lessons, ...detailExtras];
     if (gallery) {
-      container.append(h1, meta, summary, outcome, stack, highlights, lessons, gallery, links);
+      container.append(...baseContent, gallery, links);
       return;
     }
 
-    container.append(h1, meta, summary, outcome, stack, highlights, lessons, links);
+    container.append(...baseContent, links);
   }
 
   function renderCertifications(profile) {

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="900" height="520" viewBox="0 0 900 520" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .node { fill: #0d1117; stroke: #2f63ff; stroke-width: 2; rx: 12; }
+    .node-light { fill: #111827; stroke: #6ee7b7; }
+    .label { fill: #f5f7fb; font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600; }
+    .caption { fill: #a0aec0; font-size: 12px; }
+    .arrow { stroke: #a1a7ff; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+    .bg { fill: #030712; }
+  </style>
+  <defs>
+    <marker id="arrowhead" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#a1a7ff"/>
+    </marker>
+  </defs>
+  <rect class="bg" width="900" height="520" rx="32"/>
+
+  <rect class="node" x="60" y="40" width="240" height="60"/>
+  <text class="label" x="180" y="70" text-anchor="middle">SwiftUI Emergency</text>
+  <text class="caption" x="180" y="90" text-anchor="middle">record → waveform → transcript</text>
+
+  <rect class="node" x="340" y="40" width="240" height="60"/>
+  <text class="label" x="460" y="70" text-anchor="middle">Voice Recording</text>
+  <text class="caption" x="460" y="90" text-anchor="middle">SpeechManager captures audio</text>
+
+  <rect class="node" x="60" y="140" width="240" height="60"/>
+  <text class="label" x="180" y="170" text-anchor="middle">FastAPI LangGraph</text>
+  <text class="caption" x="180" y="190" text-anchor="middle">triage diagnosis + trace</text>
+
+  <rect class="node" x="340" y="140" width="240" height="60"/>
+  <text class="label" x="460" y="170" text-anchor="middle">GraphRAG & Neo4j</text>
+  <text class="caption" x="460" y="190" text-anchor="middle">hospital ranking</text>
+
+  <rect class="node-light" x="200" y="240" width="280" height="60"/>
+  <text class="label" x="340" y="270" text-anchor="middle">Node + Twilio</text>
+  <text class="caption" x="340" y="292" text-anchor="middle">Phase 1/2 calls, status endpoints</text>
+
+  <rect class="node" x="560" y="240" width="240" height="60"/>
+  <text class="label" x="680" y="270" text-anchor="middle">ActiveEmergencyView</text>
+  <text class="caption" x="680" y="292" text-anchor="middle">polls /api/call/{callSid}/status</text>
+
+  <rect class="node" x="420" y="340" width="260" height="60"/>
+  <text class="label" x="550" y="370" text-anchor="middle">Confirmed & Notify</text>
+  <text class="caption" x="550" y="392" text-anchor="middle">navigation, privacy, alerts</text>
+
+  <path class="arrow" d="M300,70 L340,70"/>
+  <path class="arrow" d="M180,100 L180,140"/>
+  <path class="arrow" d="M460,100 L460,140"/>
+  <path class="arrow" d="M460,200 L460,240"/>
+  <path class="arrow" d="M320,200 L320,240"/>
+  <path class="arrow" d="M340,270 L560,270"/>
+  <path class="arrow" d="M680,300 L680,340"/>
+  <path class="arrow" d="M340,300 L500,340"/>
+
+  <text class="caption" x="80" y="500">SwiftCare prototype ties UX, triage AI, hospital graph, and Twilio orchestration into one locally runnable simulation.</text>
+</svg>
