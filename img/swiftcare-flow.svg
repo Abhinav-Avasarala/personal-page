@@ -1,56 +1,124 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="900" height="520" viewBox="0 0 900 520" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .node { fill: #0d1117; stroke: #2f63ff; stroke-width: 2; rx: 12; }
-    .node-light { fill: #111827; stroke: #6ee7b7; }
-    .label { fill: #f5f7fb; font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600; }
-    .caption { fill: #a0aec0; font-size: 12px; }
-    .arrow { stroke: #a1a7ff; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
-    .bg { fill: #030712; }
-  </style>
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <marker id="arrowhead" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
-      <path d="M0,0 L8,4 L0,8 Z" fill="#a1a7ff"/>
+    <linearGradient id="bg" x1="60" y1="40" x2="1540" y2="860" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0F172A"/>
+      <stop offset="1" stop-color="#0A1120"/>
+    </linearGradient>
+    <linearGradient id="blueFill" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#163358" stop-opacity="0.84"/>
+      <stop offset="1" stop-color="#11203A" stop-opacity="0.98"/>
+    </linearGradient>
+    <linearGradient id="purpleFill" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#351C59" stop-opacity="0.76"/>
+      <stop offset="1" stop-color="#211234" stop-opacity="0.98"/>
+    </linearGradient>
+    <linearGradient id="orangeFill" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#4A2738" stop-opacity="0.80"/>
+      <stop offset="1" stop-color="#281520" stop-opacity="0.98"/>
+    </linearGradient>
+    <linearGradient id="greenFill" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#294120" stop-opacity="0.82"/>
+      <stop offset="1" stop-color="#172516" stop-opacity="0.98"/>
+    </linearGradient>
+    <linearGradient id="cardFill" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#1E293B" stop-opacity="0.38"/>
+      <stop offset="1" stop-color="#101827" stop-opacity="0.74"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="18" flood-color="#020617" flood-opacity="0.30"/>
+    </filter>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <path d="M0 0L10 5L0 10Z" fill="#B6CCFF"/>
     </marker>
+    <marker id="arrowPurple" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <path d="M0 0L10 5L0 10Z" fill="#DEC7FF"/>
+    </marker>
+    <marker id="arrowOrange" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <path d="M0 0L10 5L0 10Z" fill="#F2C08B"/>
+    </marker>
+    <marker id="arrowGreen" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <path d="M0 0L10 5L0 10Z" fill="#C8F0B6"/>
+    </marker>
+    <style>
+      .title { font: 700 42px -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; fill: #F8FAFC; }
+      .subtitle { font: 500 18px -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; fill: #D5E0EF; }
+      .section { font: 700 28px -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; fill: #F8FAFC; }
+      .subsection { font: 700 22px -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; fill: #F8FAFC; }
+      .label { font: 600 18px -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; fill: #F8FAFC; }
+      .small { font: 500 16px -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; fill: #CBD5E1; }
+      .tiny { font: 500 14px -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; fill: #AAB8CB; }
+      .lineBlue { stroke: #B6CCFF; stroke-width: 5; fill: none; stroke-linecap: round; stroke-linejoin: round; marker-end: url(#arrowBlue); }
+      .linePurple { stroke: #DEC7FF; stroke-width: 5; fill: none; stroke-linecap: round; stroke-linejoin: round; marker-end: url(#arrowPurple); }
+      .lineOrange { stroke: #F2C08B; stroke-width: 5; fill: none; stroke-linecap: round; stroke-linejoin: round; marker-end: url(#arrowOrange); }
+      .lineGreen { stroke: #C8F0B6; stroke-width: 5; fill: none; stroke-linecap: round; stroke-linejoin: round; marker-end: url(#arrowGreen); }
+    </style>
   </defs>
-  <rect class="bg" width="900" height="520" rx="32"/>
 
-  <rect class="node" x="60" y="40" width="240" height="60"/>
-  <text class="label" x="180" y="70" text-anchor="middle">SwiftUI Emergency</text>
-  <text class="caption" x="180" y="90" text-anchor="middle">record → waveform → transcript</text>
+  <rect x="0" y="0" width="1600" height="900" rx="28" fill="url(#bg)"/>
+  <rect x="24" y="24" width="1552" height="852" rx="26" stroke="#1E293B" stroke-width="2"/>
 
-  <rect class="node" x="340" y="40" width="240" height="60"/>
-  <text class="label" x="460" y="70" text-anchor="middle">Voice Recording</text>
-  <text class="caption" x="460" y="90" text-anchor="middle">SpeechManager captures audio</text>
+  <circle cx="300" cy="250" r="130" fill="#1D4ED8" fill-opacity="0.06"/>
+  <circle cx="910" cy="640" r="160" fill="#7C3AED" fill-opacity="0.06"/>
+  <circle cx="1350" cy="280" r="140" fill="#EA580C" fill-opacity="0.05"/>
 
-  <rect class="node" x="60" y="140" width="240" height="60"/>
-  <text class="label" x="180" y="170" text-anchor="middle">FastAPI LangGraph</text>
-  <text class="caption" x="180" y="190" text-anchor="middle">triage diagnosis + trace</text>
+  <text x="800" y="84" text-anchor="middle" class="title">SwiftCare</text>
+  <text x="800" y="118" text-anchor="middle" class="subtitle">Emergency capture, AI-assisted triage, hospital ranking, and live call-ahead confirmation</text>
 
-  <rect class="node" x="340" y="140" width="240" height="60"/>
-  <text class="label" x="460" y="170" text-anchor="middle">GraphRAG &amp; Neo4j</text>
-  <text class="caption" x="460" y="190" text-anchor="middle">hospital ranking</text>
+  <g filter="url(#shadow)">
+    <rect x="56" y="242" width="240" height="340" rx="24" fill="url(#blueFill)" stroke="#63A6FF" stroke-width="3"/>
+    <text x="176" y="290" text-anchor="middle" class="section">SwiftUI App</text>
 
-  <rect class="node-light" x="200" y="240" width="280" height="60"/>
-  <text class="label" x="340" y="270" text-anchor="middle">Node + Twilio</text>
-  <text class="caption" x="340" y="292" text-anchor="middle">Phase 1/2 calls, status endpoints</text>
+    <rect x="88" y="342" width="176" height="92" rx="18" fill="url(#cardFill)" stroke="#74B3FF" stroke-width="3"/>
+    <text x="176" y="385" text-anchor="middle" class="label">Emergency Capture</text>
+    <text x="176" y="407" text-anchor="middle" class="small">voice input</text>
+    <text x="176" y="427" text-anchor="middle" class="small">and transcript</text>
 
-  <rect class="node" x="560" y="240" width="240" height="60"/>
-  <text class="label" x="680" y="270" text-anchor="middle">ActiveEmergencyView</text>
-  <text class="caption" x="680" y="292" text-anchor="middle">polls /api/call/{callSid}/status</text>
+    <text x="176" y="496" text-anchor="middle" class="tiny">Hospital selection and live status</text>
+    <text x="176" y="518" text-anchor="middle" class="tiny">remain in the app experience</text>
+  </g>
 
-  <rect class="node" x="420" y="340" width="260" height="60"/>
-  <text class="label" x="550" y="370" text-anchor="middle">Confirmed &amp; Notify</text>
-  <text class="caption" x="550" y="392" text-anchor="middle">navigation, privacy, alerts</text>
+  <g filter="url(#shadow)">
+    <rect x="354" y="180" width="760" height="540" rx="26" fill="url(#purpleFill)" stroke="#AF6CFF" stroke-width="3"/>
+    <text x="734" y="228" text-anchor="middle" class="section">Backend Services</text>
 
-  <path class="arrow" d="M300,70 L340,70"/>
-  <path class="arrow" d="M180,100 L180,140"/>
-  <path class="arrow" d="M460,100 L460,140"/>
-  <path class="arrow" d="M460,200 L460,240"/>
-  <path class="arrow" d="M320,200 L320,240"/>
-  <path class="arrow" d="M340,270 L560,270"/>
-  <path class="arrow" d="M680,300 L680,340"/>
-  <path class="arrow" d="M340,300 L500,340"/>
+    <rect x="396" y="300" width="212" height="110" rx="20" fill="url(#cardFill)" stroke="#C48FFF" stroke-width="3"/>
+    <text x="502" y="345" text-anchor="middle" class="subsection">FastAPI</text>
+    <text x="502" y="376" text-anchor="middle" class="label">Triage API</text>
+    <text x="502" y="402" text-anchor="middle" class="small">initial diagnosis</text>
 
-  <text class="caption" x="80" y="500">SwiftCare prototype ties UX, triage AI, hospital graph, and Twilio orchestration into one locally runnable simulation.</text>
+    <rect x="658" y="256" width="394" height="180" rx="22" fill="url(#cardFill)" stroke="#C48FFF" stroke-width="3"/>
+    <text x="855" y="306" text-anchor="middle" class="subsection">LangGraph Agent Pipeline</text>
+    <text x="855" y="350" text-anchor="middle" class="label">Triage summary + hospital ranking</text>
+    <text x="855" y="378" text-anchor="middle" class="small">uses triage output and retrieval context</text>
+
+    <rect x="658" y="498" width="394" height="130" rx="22" fill="url(#greenFill)" stroke="#8ADA70" stroke-width="3"/>
+    <text x="855" y="542" text-anchor="middle" class="subsection">AI + Data Services</text>
+    <rect x="716" y="566" width="120" height="40" rx="14" fill="url(#cardFill)" stroke="#B8ECA0" stroke-width="3"/>
+    <text x="776" y="592" text-anchor="middle" class="label">Neo4j</text>
+    <rect x="874" y="566" width="120" height="40" rx="14" fill="url(#cardFill)" stroke="#B8ECA0" stroke-width="3"/>
+    <text x="934" y="592" text-anchor="middle" class="label">LLM APIs</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="1170" y="250" width="300" height="148" rx="24" fill="url(#orangeFill)" stroke="#F2A467" stroke-width="3"/>
+    <text x="1320" y="300" text-anchor="middle" class="section">Node + Twilio</text>
+    <text x="1320" y="338" text-anchor="middle" class="label">Call Gateway</text>
+    <text x="1320" y="364" text-anchor="middle" class="small">places the live hospital call</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="1170" y="474" width="300" height="128" rx="24" fill="url(#cardFill)" stroke="#7DD7D0" stroke-width="3"/>
+    <text x="1320" y="524" text-anchor="middle" class="section">Hospital</text>
+    <text x="1320" y="562" text-anchor="middle" class="label">Live Confirmation</text>
+  </g>
+
+  <path d="M264 388H396" class="lineBlue"/>
+  <path d="M608 355H658" class="linePurple"/>
+  <path d="M855 498V438" class="lineGreen"/>
+  <path d="M1052 346H1170" class="lineOrange"/>
+  <path d="M1320 398V474" class="lineOrange"/>
+
+  <rect x="354" y="780" width="1116" height="72" rx="18" fill="#101827" fill-opacity="0.58" stroke="#334155" stroke-width="2"/>
+  <text x="912" y="821" text-anchor="middle" class="subtitle">Emergency capture -> triage API -> LangGraph pipeline -> Twilio call gateway -> hospital confirmation</text>
+  <text x="912" y="844" text-anchor="middle" class="tiny">Neo4j and LLM services feed the pipeline as supporting inputs</text>
 </svg>
