@@ -23,16 +23,41 @@
     "hidden": true
   },
   {
+    "id": "kube-mind",
+    "title": "kube-mind – Agentic Kubernetes CLI",
+    "timeframe": "Spring 2026",
+    "summary": "Natural language CLI for GKE: describe what you want in plain English and a LangGraph + GPT-4o agent plans, validates, and executes the minimum set of Kubernetes and gcloud operations to make it happen.",
+    "outcome": "Delivered a full agentic loop — intent guardrails, planner, op-level safety checks, confirm gate, verify steps, diff preview, exact undo — with an eval harness that scores planner quality against 19 labelled test cases.",
+    "stack": ["Python", "LangGraph", "GPT-4o", "NeMo Guardrails", "Typer", "GKE", "Kubernetes SDK", "Prometheus", "Helm"],
+    "image": "img/Kube_mind.png",
+    "links": {
+      "demo": "#",
+      "repo": "https://github.com/Abhinav-Avasarala/agentic-k8s"
+    },
+    "highlights": [
+      "Translates vague English intent into typed gcloud/kubectl ops via a LangGraph planner→executor graph backed by GPT-4o",
+      "Three-layer safety system: NeMo Guardrails blocks dangerous intents before planning, pure-Python op checks hard-block destructive ops, and a confirm gate forces typed resource-name acknowledgment for high-risk mutations",
+      "Prometheus integration (installed automatically via Helm) powers plain-English diagnostic queries — CPU, memory, pod health, crash-loop detection, per-deployment resource usage",
+      "diff command shows a terraform-style state diff without touching the cluster; undo captures exact before-state at execution time so rollback is deterministic, not re-planned",
+      "Plug-and-play eval harness with 19 labelled (state, intent, expected-ops) test cases; scored by precision/recall/F1 and supports side-by-side model comparison"
+    ],
+    "lessons": [
+      "Multi-layer safety (intent → op → confirm) catches categories of failure that no single check handles; each layer blocks a distinct threat model",
+      "Evaluation harnesses surface model limitations before they reach production — the resize-noop failure was invisible until scored against ground truth",
+      "Undo requires capturing exact before-state at execution time; relying on re-planning the inverse introduces drift and defeats the purpose"
+    ]
+  },
+  {
     "id": "reflectra",
     "title": "Reflectra – AI Wellness Copilot",
     "timeframe": "Feb 2025 · 36-hour hackathon",
     "summary": "AI reflection chat that turns your browsing history into balanced wellness insights instead of just screen-time metrics.",
     "outcome": "Built a Chrome extension + Supabase + RAG stack that highlights focus patterns and mindful breaks directly from tab activity.",
     "stack": ["Chrome Extension (MV3)", "Express", "Supabase", "GPT-4o-mini", "Pinecone", "React"],
-    "image": "",
+    "image": "img/Reflectra.png",
     "links": {
       "demo": "#",
-      "repo": "#"
+      "repo": "https://github.com/SagnikSaha01/Reflectra"
     },
     "highlights": [
       "Ships an AI Reflection Chat powered by RAG over your personal browsing embeddings",
