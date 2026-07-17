@@ -268,6 +268,15 @@
         repo.textContent = 'Repo';
         cta.appendChild(repo);
       }
+      if (p.links?.report && p.links.report !== '#') {
+        const report = document.createElement('a');
+        report.className = 'link-pill';
+        report.href = p.links.report;
+        report.target = '_blank';
+        report.rel = 'noopener';
+        report.textContent = 'Project Report';
+        cta.appendChild(report);
+      }
       body.append(title, time, summary, outcome, stack, cta);
       card.appendChild(body);
       grid.appendChild(card);
@@ -456,6 +465,15 @@
       repo.rel = 'noopener';
       repo.textContent = 'Repo';
       links.appendChild(repo);
+    }
+    if (project.links?.report && project.links.report !== '#') {
+      const report = document.createElement('a');
+      report.className = 'link-pill';
+      report.href = project.links.report;
+      report.target = '_blank';
+      report.rel = 'noopener';
+      report.textContent = 'Project Report';
+      links.appendChild(report);
     }
 
     const detailExtras = [];

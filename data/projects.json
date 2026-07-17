@@ -32,7 +32,8 @@
     "image": "img/systolic-array-matmul.png",
     "links": {
       "demo": "#",
-      "repo": "#"
+      "repo": "https://github.com/Abhinav-Avasarala/matrix-multiply-systolic-RTL",
+      "report": "docs/Matmul_Project_Report.pdf"
     },
     "highlights": [
       "Built a 3-stage pipelined INT8 MAC processing element, then tiled 16 of them into a 4×4 grid with nested Verilog generate loops",
