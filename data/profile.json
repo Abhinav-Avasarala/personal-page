@@ -23,63 +23,69 @@
   },
   "experience": [
     {
-      "id": "ncsu-research",
-      "company": "North Carolina State University",
-      "role": "Research Intern",
-      "timeframe": "Jan 2025 – Present",
+      "id": "ncsu-oit",
+      "company": "NCSU Office of Information Technology",
+      "role": "HPC Systems Intern",
+      "timeframe": "May 2026 – Present",
       "location": " (Raleigh, NC)",
       "bullets": [
-        "I'm working on research to accelerate neural network inference by pushing a 16-bit diffusion model down to low-precision formats such as INT8 and FP8, using CUDA, cuBLAS, and CUTLASS. The goal is to cut memory footprint and latency without sacrificing output quality."
+        "Supporting enterprise-scale migration of workload scheduling from IBM LSF to Slurm across the Hazel HPC cluster (1,000+ nodes), analyzing job submission patterns and translating batch scripts for production rollout",
+        "Built Apptainer container images for GPU-accelerated PyTorch workloads, packaging CUDA/cuDNN dependencies for reproducible, rootless execution across heterogeneous compute nodes",
+        "Characterized multi-GPU interconnect topology on GPU nodes, identifying cross-NUMA GPU placement and hybrid InfiniBand/RoCE network paths, and analyzed the resulting bandwidth implications for NCCL collective operations",
+        "Automated strong-scaling benchmarks and MPI rank-distribution studies with Python and Slurm job arrays, producing throughput reports that validate cluster performance across node configurations"
       ],
-      "tags": ["CUDA", "PyTorch", "C++", "Python", "Quantization"],
-      "detailLink": "experience.html?id=ncsu-research",
+      "tags": ["Slurm", "LSF", "Linux", "Python", "MPI", "Apptainer", "NCCL"],
+      "detailLink": "experience.html?id=ncsu-oit",
       "deepDive": {
-        "title": "Low-Precision GPU Inference Research – INT8/FP8 Diffusion Model Acceleration",
-        "timeframe": "Jan 2025 – Present",
-        "summary": "I'm working on research to accelerate neural network inference by pushing a 16-bit diffusion model down to low-precision formats such as INT8 and FP8, using CUDA, cuBLAS, and CUTLASS. The goal is to cut memory footprint and latency without sacrificing output quality.",
+        "title": "Migrating a 1,000+ Node HPC Cluster from LSF to Slurm",
+        "timeframe": "May 2026 – Present",
+        "summary": "Supporting an enterprise-scale migration of workload scheduling from IBM LSF to Slurm across NCSU's Hazel HPC cluster, while characterizing GPU interconnect topology and automating scaling benchmarks.",
         "body": [
-          "I designed structured experiments to understand precision bottlenecks, learned GPU architecture and CUDA from first principles, and built several prototype kernels and PyTorch extensions to test different quantization paths.",
-          "I've implemented symmetric INT8 quantization for smaller networks, benchmarked FP8 variants, and proposed multiple feasible approaches for scaling these techniques to the full diffusion model."
+          "Analyzed existing job submission patterns on the 1,000+ node Hazel cluster and translated production LSF batch scripts to Slurm equivalents to support a live scheduler migration.",
+          "Packaged GPU-accelerated PyTorch workloads into Apptainer container images, bundling CUDA/cuDNN dependencies for reproducible, rootless execution across heterogeneous compute nodes.",
+          "Mapped multi-GPU interconnect topology on GPU nodes — cross-NUMA GPU placement and hybrid InfiniBand/RoCE paths — and analyzed the bandwidth implications for NCCL collective operations.",
+          "Built Python + Slurm job-array automation for strong-scaling benchmarks and MPI rank-distribution studies, producing throughput reports that validate cluster performance across node configurations."
         ],
         "focusAreas": [
-          "CUDA kernel development",
-          "cuBLAS GEMMEx and CUTLASS low-precision kernels",
-          "PyTorch internals and custom ops",
-          "Quantization error analysis",
-          "Performance benchmarking on modern NVIDIA architectures"
+          "Slurm and LSF workload scheduling",
+          "Apptainer/container packaging for GPU workloads",
+          "GPU interconnect topology (NUMA, InfiniBand/RoCE)",
+          "NCCL collective communication analysis",
+          "MPI strong-scaling benchmarking"
         ]
       }
     },
     {
-      "id": "iquadra",
-      "company": "iQuadra Information Services",
-      "role": "Software Engineer Intern",
-      "timeframe": "May 2025 – Aug 2025",
-      "location": " (Remote)",
+      "id": "ncsu-snn-research",
+      "company": "NCSU Spiking Neural Network Research",
+      "role": "GPU Research Intern, Advisor: Dr. Huiyang Zhou",
+      "timeframe": "Jan 2026 – May 2026",
+      "location": " (Raleigh, NC)",
       "bullets": [
-        "Built a bug-tracking system with React front-end, Node + Express back-end, PostgreSQL, and Axios integration",
-        "Designed 12+ RESTful API endpoints and improved bug resolution time by 20% through priority tagging and streamlined workflow",
-        "Led a team of 3 front-end devs to build responsive UIs from Figma designs"
+        "Profiled and optimized a Triton-based LIF spiking-neuron kernel (SpikingJelly) on NVIDIA H100/H200 GPUs, achieving a ~4.45x throughput improvement over the PyTorch baseline",
+        "Analyzed kernel efficiency, memory bandwidth, and occupancy with Nsight Compute; iterated on launch configurations and resolved on-cluster profiling permissions to raise GPU utilization",
+        "Benchmarked spiking-network inference efficiency across GPU hardware, contributing results toward a Triton kernel publication"
       ],
-      "tags": ["React", "Node.js", "Express", "PostgreSQL", "REST", "Figma"],
-      "detailLink": "experience.html?id=iquadra",
+      "tags": ["CUDA", "Triton", "PyTorch", "Nsight Compute", "H100/H200"],
+      "detailLink": "experience.html?id=ncsu-snn-research",
       "deepDive": {
-        "title": "Shipping a Cross-Platform Bug Tracker",
-        "summary": "Built a React + Node.js bug-tracking system end-to-end and steered a small front-end team to hit polish and performance targets.",
+        "title": "Optimizing a Triton Spiking-Neuron Kernel on H100/H200",
+        "timeframe": "Jan 2026 – May 2026",
+        "summary": "Profiled and optimized a Triton-based LIF spiking-neuron kernel (SpikingJelly) on NVIDIA H100/H200 GPUs under Dr. Huiyang Zhou, achieving a ~4.45x throughput improvement over the PyTorch baseline.",
         "body": [
-          "Designed and implemented 12+ REST endpoints on Express/PostgreSQL to cover bug lifecycle actions, priority routing, and reporting.",
-          "Coordinated three front-end developers, translating Figma specs into responsive React views and guiding component patterns for reuse.",
-          "Instrumented the workflow to cut resolution time ~20% by enforcing priority tags, filtered views, and clear ownership routing."
+          "Profiled the SpikingJelly LIF spiking-neuron kernel end-to-end on H100/H200 GPUs, isolating the gaps between the PyTorch baseline and a hand-tuned Triton implementation.",
+          "Used Nsight Compute to analyze kernel efficiency, memory bandwidth, and occupancy, iterating on launch configurations and resolving on-cluster profiling permission issues to unblock utilization gains.",
+          "Achieved a ~4.45x throughput improvement over the PyTorch baseline and benchmarked spiking-network inference efficiency across GPU hardware, with results contributing toward a Triton kernel publication."
         ],
         "focusAreas": [
-          "React UI architecture and component reuse",
-          "REST API design on Node.js + Express",
-          "PostgreSQL schema design for issue lifecycle",
-          "Team leadership and delivery against specs"
+          "Triton kernel development",
+          "Nsight Compute profiling (bandwidth, occupancy)",
+          "Spiking neural network inference (LIF neurons)",
+          "GPU launch-configuration tuning",
+          "Cross-hardware benchmarking (H100/H200)"
         ]
       }
     }
-    
   ],
   "certifications": [
     {
