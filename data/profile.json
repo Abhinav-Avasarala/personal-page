@@ -83,10 +83,18 @@
   ],
   "certifications": [
     {
-      "title": "Google Cloud Engineering Certificate",
-      "issuer": "Google",
-      "date": "Issued Jul 2025",
-      "link": ""
+      "title": "Associate Cloud Engineer",
+      "issuer": "Google Cloud",
+      "date": "",
+      "link": "https://www.credly.com/badges/3ead4f77-d8f3-4572-9cbf-72191a473913/public_url",
+      "credlyBadgeId": "3ead4f77-d8f3-4572-9cbf-72191a473913"
+    },
+    {
+      "title": "NVIDIA Certified Professional: Agentic AI",
+      "issuer": "NVIDIA",
+      "date": "",
+      "link": "https://www.credly.com/badges/90cf67e1-b72b-4a8a-bf1f-c482185478ba/public_url",
+      "credlyBadgeId": "90cf67e1-b72b-4a8a-bf1f-c482185478ba"
     },
     {
       "title": "Python Data Structures and Algorithms",

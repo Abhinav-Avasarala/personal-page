@@ -465,6 +465,8 @@ header {
 .cert-card h3 { margin: 0 0 6px; }
 .cert-card .meta { color: var(--muted); font-size: 13px; }
 
+.cert-badge { align-self: center; }
+
 .cert-card .link-pill { margin-top: 2px; }
 
 @media (max-width: 900px) {

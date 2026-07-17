@@ -473,9 +473,20 @@
   function renderCertifications(profile) {
     if (!qs('#cert-grid')) return;
     const grid = qs('#cert-grid');
+    let needsCredlyScript = false;
     (profile.certifications || []).forEach((c) => {
       const card = document.createElement('div');
       card.className = 'cert-card';
+      if (c.credlyBadgeId) {
+        const badge = document.createElement('div');
+        badge.className = 'cert-badge';
+        badge.setAttribute('data-iframe-width', '150');
+        badge.setAttribute('data-iframe-height', '270');
+        badge.setAttribute('data-share-badge-id', c.credlyBadgeId);
+        badge.setAttribute('data-share-badge-host', 'https://www.credly.com');
+        card.appendChild(badge);
+        needsCredlyScript = true;
+      }
       const title = document.createElement('h3');
       title.textContent = c.title;
       const meta = document.createElement('div');
@@ -493,6 +504,12 @@
       }
       grid.appendChild(card);
     });
+    if (needsCredlyScript) {
+      const script = document.createElement('script');
+      script.async = true;
+      script.src = '//cdn.credly.com/assets/utilities/embed.js';
+      document.body.appendChild(script);
+    }
   }
 
   try {
