@@ -23,6 +23,31 @@
     "hidden": true
   },
   {
+    "id": "systolic-array",
+    "title": "4×4 Systolic Array — MAC-Based Matrix Multiply Accelerator",
+    "timeframe": "Jun 2026",
+    "summary": "INT8 systolic array matrix-multiply accelerator hand-written in Verilog, mirroring the output-stationary dataflow used in AI chips like Google's TPU, synthesized and timing-closed on an AMD Kria KV260 FPGA.",
+    "outcome": "Passed 10/10 simulation tests with a bit-exact match against a NumPy reference, closed timing at 100 MHz with +6.116 ns setup slack, and fit the design in under 2% of the KV260's CLB LUTs.",
+    "stack": ["Verilog", "SystemVerilog", "AMD Vivado", "AMD Kria KV260", "Python", "NumPy", "GTKWave"],
+    "image": "img/systolic-array-matmul.png",
+    "links": {
+      "demo": "#",
+      "repo": "#"
+    },
+    "highlights": [
+      "Built a 3-stage pipelined INT8 MAC processing element, then tiled 16 of them into a 4×4 grid with nested Verilog generate loops",
+      "Output-stationary dataflow: each PE independently accumulates its own C[i][j] with no partial-sum passing, and asymmetric a_wire/b_wire dimensions (N+1 columns/rows) mirror the physical flow of A rightward and B downward",
+      "Verified correctness in two stages — an isolated MAC PE testbench (6 test groups) followed by a 10-test full-array testbench, including a bit-exact comparison against a NumPy-generated reference",
+      "Synthesized and implemented on the AMD Kria KV260 (Zynq UltraScale+, xck26) in out-of-context mode: 100 MHz constraint met with 0 failing endpoints, ~258 MHz max achievable frequency, 1,360 LUTs and 768 registers used",
+      "Benchmarked hardware throughput (~0.53 GOPS at 100 MHz) against the KV260's ARM Cortex-A53 and worked out the AXI-overhead crossover point (N ≈ 32–64) where the FPGA accelerator actually wins on wall-clock time"
+    ],
+    "lessons": [
+      "Input skewing (staggering row i of A by i cycles so operands arrive at the right PE on the right cycle) has to live in the testbench/driver, not the array module itself",
+      "For small matrices, constant-overhead AXI communication dominates over compute time — hardware acceleration only pays off once the matrix is large enough that compute time catches up",
+      "Vivado will happily infer small multipliers (8-bit) into LUTs instead of DSP blocks when that's the more resource-efficient choice, so utilization reports need a second look before assuming DSPs are in use"
+    ]
+  },
+  {
     "id": "kube-mind",
     "title": "kube-mind – Agentic Kubernetes CLI",
     "timeframe": "Spring 2026",
